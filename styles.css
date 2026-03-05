@@ -1,0 +1,63 @@
+/* ===== БАЗА (однаковий стиль на всіх сторінках) ===== */
+body{
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color:#f5e1e1; /* один фон на всіх сторінках */
+}
+
+/* Кольори посилань як було через link/vlink/alink */
+a:link{ color: darkblue; }
+a:visited{ color: purple; }
+a:active{ color: red; }
+
+/* ===== ВИМОГА: !important (червоний рядок) ===== */
+.importantText{
+  color: red !important;
+}
+
+/* ===== INDEX: 4 фото в один рядок ===== */
+.photosRow{
+  display:flex;
+  flex-wrap:nowrap;       /* НЕ переносити вниз */
+  gap:12px;
+  overflow-x:auto;        /* якщо екран вузький — з’явиться горизонтальний скрол */
+  padding-bottom:6px;
+}
+
+.photosRow img{
+  flex:0 0 auto;
+  width:320px;
+  height:220px;
+  object-fit:cover;
+  display:block;
+}
+
+/* ===== ТАБЛИЦІ ===== */
+/* About */
+.table-about{
+  width: 100%;
+  background: white;
+  border: 1px solid #000;
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+.table-about th, .table-about td{
+  padding: 10px;
+}
+
+/* Contacts */
+.table-contacts{
+  width: 100%;
+  background: white;
+  border: 1px solid #000;
+  border-collapse: separate;
+  border-spacing: 8px;
+}
+.table-contacts th, .table-contacts td{
+  padding: 12px;
+}
+
+/* ===== СПИСОК ВИЗНАЧЕНЬ ===== */
+dl{ margin: 12px 0; }
+dt{ font-weight: 700; margin-top: 8px; }
+dd{ margin-left: 18px; }
