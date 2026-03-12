@@ -5,12 +5,11 @@ body{
   background-color:#f5e1e1; /* один фон на всіх сторінках */
 }
 
-/* Кольори посилань як було через link/vlink/alink */
 a:link{ color: darkblue; }
 a:visited{ color: purple; }
 a:active{ color: red; }
 
-/* ===== ВИМОГА: !important (червоний рядок) ===== */
+/* ===== !important (червоний рядок) ===== */
 .importantText{
   color: red !important;
 }
@@ -18,9 +17,9 @@ a:active{ color: red; }
 /* ===== INDEX: 4 фото в один рядок ===== */
 .photosRow{
   display:flex;
-  flex-wrap:nowrap;       /* НЕ переносити вниз */
+  flex-wrap:nowrap;       
   gap:12px;
-  overflow-x:auto;        /* якщо екран вузький — з’явиться горизонтальний скрол */
+  overflow-x:auto;       
   padding-bottom:6px;
 }
 
@@ -61,3 +60,63 @@ a:active{ color: red; }
 dl{ margin: 12px 0; }
 dt{ font-weight: 700; margin-top: 8px; }
 dd{ margin-left: 18px; }
+
+/* ===== КОНТЕКСТНІ, ДОЧІРНІ ТА СУСІДНІ СЕЛЕКТОРИ ===== */
+
+/* 1. Контекстний селектор:
+   усі посилання всередині nav */
+nav a {
+  letter-spacing: 0.3px;
+}
+
+/* 2. Контекстний селектор:
+   усі абзаци всередині footer */
+footer p {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+/* 3. Дочірній селектор:
+   лише прямі посилання всередині nav */
+nav > a {
+  display: inline-block;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
+/* 4. Дочірній селектор:
+   лише прямі картинки всередині .photosRow */
+.photosRow > img {
+  border-radius: 10px;
+}
+
+/* 5. Сусідній селектор:
+   абзац одразу після h2 */
+h2 + p {
+  background: #f8c0e3;
+  padding: 8px 10px;
+  border-left: 4px solid #c040b1;
+  border-radius: 8px;
+}
+
+/* 6. Сусідній селектор:
+   таблиця одразу після h2 */
+h2 + table {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* 7. Контекстний селектор для таблиць:
+   картинки всередині таблиці about */
+.table-about img {
+  transition: transform 0.2s ease;
+}
+
+.table-about img:hover {
+  transform: scale(1.03);
+}
+
+/* 8. Дочірній селектор для списку визначень:
+   лише прямі dt у dl */
+dl > dt {
+  color: #c040b1;
+}
