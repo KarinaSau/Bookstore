@@ -1,20 +1,32 @@
-/* ===== БАЗА (однаковий стиль на всіх сторінках) ===== */
+/* ===== СЕЛЕКТОР ТЕГА ===== */
 body{
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color:#f5e1e1; /* один фон на всіх сторінках */
+  background-color:#f5e1e1; 
 }
 
 a:link{ color: darkblue; }
 a:visited{ color: purple; }
 a:active{ color: red; }
 
-/* ===== !important (червоний рядок) ===== */
+/* ===== СЕЛЕКТОРИ ІДЕНТИФІКАТОРА (ID) ===== */
+#start{
+  color:#6b123f;
+}
+
+#books{
+  text-transform: uppercase;
+}
+
+#detective{
+  text-decoration: underline;
+}
+
+/* ===== !important ===== */
 .importantText{
   color: red !important;
 }
 
-/* ===== INDEX: 4 фото в один рядок ===== */
 .photosRow{
   display:flex;
   flex-wrap:nowrap;       
@@ -40,6 +52,7 @@ a:active{ color: red; }
   border-collapse: separate;
   border-spacing: 5px;
 }
+
 .table-about th, .table-about td{
   padding: 10px;
 }
@@ -52,46 +65,44 @@ a:active{ color: red; }
   border-collapse: separate;
   border-spacing: 8px;
 }
+
 .table-contacts th, .table-contacts td{
   padding: 12px;
 }
 
-/* ===== СПИСОК ВИЗНАЧЕНЬ ===== */
 dl{ margin: 12px 0; }
 dt{ font-weight: 700; margin-top: 8px; }
 dd{ margin-left: 18px; }
 
+
+
 /* ===== КОНТЕКСТНІ, ДОЧІРНІ ТА СУСІДНІ СЕЛЕКТОРИ ===== */
 
-/* 1. Контекстний селектор:
-   усі посилання всередині nav */
 nav a {
   letter-spacing: 0.3px;
 }
 
-/* 2. Контекстний селектор:
-   усі абзаци всередині footer */
 footer p {
   margin-top: 8px;
   margin-bottom: 8px;
 }
 
-/* 3. Дочірній селектор:
-   лише прямі посилання всередині nav */
+footer > p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
 nav > a {
   display: inline-block;
   padding: 4px 6px;
   border-radius: 6px;
 }
 
-/* 4. Дочірній селектор:
-   лише прямі картинки всередині .photosRow */
 .photosRow > img {
   border-radius: 10px;
 }
 
-/* 5. Сусідній селектор:
-   абзац одразу після h2 */
 h2 + p {
   background: #f8c0e3;
   padding: 8px 10px;
@@ -99,14 +110,10 @@ h2 + p {
   border-radius: 8px;
 }
 
-/* 6. Сусідній селектор:
-   таблиця одразу після h2 */
 h2 + table {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-/* 7. Контекстний селектор для таблиць:
-   картинки всередині таблиці about */
 .table-about img {
   transition: transform 0.2s ease;
 }
@@ -115,8 +122,58 @@ h2 + table {
   transform: scale(1.03);
 }
 
-/* 8. Дочірній селектор для списку визначень:
-   лише прямі dt у dl */
 dl > dt {
   color: #c040b1;
+}
+
+.highlight{
+  background:#f8c0e3;
+  padding:2px 6px;
+  border-radius:6px;
+}
+
+.toTop{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #f8c0e3;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.floatImg{
+  float: left;
+  margin: 0 15px 10px 0;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+p:first-child{
+  color:#6b1212;
+}
+
+h2::before{
+  content: "📚 ";
+}
+
+h2::after{
+  content: " ✔";
+  color: rgb(0, 146, 46);
+}
+
+a:link {
+  color: blue;
+}
+
+a:visited {
+  color: purple;
+}
+
+a:active {
+  color: red;
 }
