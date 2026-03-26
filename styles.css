@@ -1,179 +1,177 @@
-/* ===== СЕЛЕКТОР ТЕГА ===== */
-body{
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background-color:#f5e1e1; 
-}
-
-a:link{ color: darkblue; }
-a:visited{ color: purple; }
-a:active{ color: red; }
-
-/* ===== СЕЛЕКТОРИ ІДЕНТИФІКАТОРА (ID) ===== */
-#start{
-  color:#6b123f;
-}
-
-#books{
-  text-transform: uppercase;
-}
-
-#detective{
-  text-decoration: underline;
-}
-
-/* ===== !important ===== */
-.importantText{
-  color: red !important;
-}
-
-.photosRow{
-  display:flex;
-  flex-wrap:nowrap;       
-  gap:12px;
-  overflow-x:auto;       
-  padding-bottom:6px;
-}
-
-.photosRow img{
-  flex:0 0 auto;
-  width:320px;
-  height:220px;
-  object-fit:cover;
-  display:block;
-}
-
-/* ===== ТАБЛИЦІ ===== */
-/* About */
-.table-about{
-  width: 100%;
-  background: white;
-  border: 1px solid #000;
-  border-collapse: separate;
-  border-spacing: 5px;
-}
-
-.table-about th, .table-about td{
-  padding: 10px;
-}
-
-/* Contacts */
-.table-contacts{
-  width: 100%;
-  background: white;
-  border: 1px solid #000;
-  border-collapse: separate;
-  border-spacing: 8px;
-}
-
-.table-contacts th, .table-contacts td{
-  padding: 12px;
-}
-
-dl{ margin: 12px 0; }
-dt{ font-weight: 700; margin-top: 8px; }
-dd{ margin-left: 18px; }
-
-
-
-/* ===== КОНТЕКСТНІ, ДОЧІРНІ ТА СУСІДНІ СЕЛЕКТОРИ ===== */
-
-nav a {
-  letter-spacing: 0.3px;
-}
-
-footer p {
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
-
-footer > p {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-
-nav > a {
-  display: inline-block;
-  padding: 4px 6px;
-  border-radius: 6px;
-}
-
-.photosRow > img {
-  border-radius: 10px;
-}
-
-h2 + p {
-  background: #f8c0e3;
-  padding: 8px 10px;
-  border-left: 4px solid #c040b1;
-  border-radius: 8px;
-}
-
-h2 + table {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.table-about img {
-  transition: transform 0.2s ease;
-}
-
-.table-about img:hover {
-  transform: scale(1.03);
-}
-
-dl > dt {
-  color: #c040b1;
-}
-
-.highlight{
-  background:#f8c0e3;
-  padding:2px 6px;
-  border-radius:6px;
-}
-
-.toTop{
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #f8c0e3;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 50%;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.floatImg{
-  float: left;
-  margin: 0 15px 10px 0;
-}
-
-a:hover{
-  text-decoration: underline;
-}
-
-p:first-child{
-  color:#6b1212;
-}
-
-h2::before{
-  content: "📚 ";
-}
-
-h2::after{
-  content: " ✔";
-  color: rgb(0, 146, 46);
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5e1e1;
 }
 
 a:link {
-  color: blue;
+    color: darkblue;
 }
 
 a:visited {
-  color: purple;
+    color: purple;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 a:active {
-  color: red;
+    color: red;
+}
+
+#start {
+    color: #6b123f;
+}
+
+#books {
+    text-transform: uppercase;
+}
+
+#detective {
+    text-decoration: underline;
+}
+
+.importantText {
+    color: red !important;
+}
+
+.photosRow {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+}
+
+.photosRow img {
+    flex: 0 0 auto;
+    width: 320px;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.table-about {
+    width: 100%;
+    background: white;
+    border: 1px solid #000;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+.table-about th,
+.table-about td {
+    padding: 10px;
+}
+
+.table-contacts {
+    width: 100%;
+    background: white;
+    border: 1px solid #000;
+    border-collapse: separate;
+    border-spacing: 8px;
+}
+
+.table-contacts th,
+.table-contacts td {
+    padding: 12px;
+}
+
+dl {
+    margin: 12px 0;
+}
+
+dt {
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+dd {
+    margin-left: 18px;
+}
+
+
+nav a {
+    letter-spacing: 0.3px;
+}
+
+footer p {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+footer>p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+nav>a {
+    display: inline-block;
+    padding: 4px 6px;
+    border-radius: 6px;
+}
+
+.photosRow>img {
+    border-radius: 10px;
+}
+
+h2+p {
+    background: #f8c0e3;
+    padding: 8px 10px;
+    border-left: 4px solid #c040b1;
+    border-radius: 8px;
+}
+
+h2+table {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.table-about img {
+    transition: transform 0.2s ease;
+}
+
+.table-about img:hover {
+    transform: scale(1.03);
+}
+
+dl>dt {
+    color: #c040b1;
+}
+
+.highlight {
+    background: #f8c0e3;
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+.toTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #f8c0e3;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.floatImg {
+    float: left;
+    margin: 0 15px 10px 0;
+}
+
+p:first-child {
+    color: #6b1212;
+}
+
+h2::before {
+    content: "📚 ";
+}
+
+h2::after {
+    content: " ✔";
+    color: rgb(0, 146, 46);
 }

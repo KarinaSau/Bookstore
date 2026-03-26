@@ -32,23 +32,15 @@
   <hr>
 
   <h2 id="start">Вітаємо у нашій книгарні!</h2>
+  <script>
+  document.write('<p><em>READLY — місце, де книги, кава і затишок поєднуються в одній атмосфері.</em></p>');
+  </script>
 
-  <!-- ЖОВТИЙ блок (внутрішній стиль) -->
-  <p style="background:#fff3b0; padding:12px; border-radius:10px;">
-    У проєкті використано приклади для 3 розділів: <strong>Романи, Детективи, Мотивація.</strong>
+  <p><strong>Ми</strong> — сучасна книгарня для тих, хто любить
+  <span class="highlight">якісну літературу</span> та атмосферу натхнення.
   </p>
 
-  <!-- ЧЕРВОНИЙ рядок (!important через CSS) -->
-  <p class="importantText">
-    У проєкті використано приклади для 3 розділів: <strong>Романи, Детективи, Мотивація.</strong>
-  </p>
-
-  <p><strong>READLY</strong> — це сучасна книгарня для тих, хто любить
-    <span class="highlight">якісну літературу</span> та атмосферу натхнення.
-  </p>
-
-  <p>У нашому <a href="catalog.html#detective">каталозі</a> ви знайдете художні твори, детективи та мотиваційні книги.
-  </p>
+  <p>У нашому <a href="catalog.html">каталозі</a> ви знайдете художні твори, детективи та мотиваційні книги.</p>
 
   <p>
     Дізнатись більше про літературу можна на
@@ -67,12 +59,44 @@
   <img src="img/shop3.jpg" alt="Кав’ярня READLY" width="320" height="220">
 </div>
 
+<p style="text-align:center;">
+  <button onclick="changeBackgroundFor30Seconds()">Змінити фон на 30 секунд</button>
+</p>
+
   <footer>
     <hr>
     <p>Автор: Сауляк Каріна Сергіївна, ІА-43</p>
   </footer>
 
 <a href="#start" class="toTop">↑</a>
+
+
+<script src="script.js"></script>
+
+<script>
+  window.onload = function () {
+    domOperations();
+
+    setTimeout(function () {
+      alert("Ласкаво просимо до книгарні READLY!");
+
+      if (confirm("Хочете пройти короткий книжковий діалог і отримати невелику рекомендацію?")) {
+        dialogWithUser();
+      } else {
+        alert("Бажаємо вам приємного перегляду сторінки.");
+      }
+
+      showDeveloperInfo("Сауляк", "Каріна");
+      compareStrings("Романи", "Детективи");
+
+      if (confirm("Перейти до каталогу книг?")) {
+        redirectToAnotherPage();
+      }
+    }, 300);
+  };
+</script>
+
+
 </body>
 
 </html>
