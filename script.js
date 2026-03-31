@@ -153,3 +153,142 @@ function domOperations() {
         console.log(firstParagraph.firstChild.data);
     }
 }
+
+function assignMouseEvents() {
+    const mouseButton = document.getElementById("mouseButton");
+    const mouseMessage = document.getElementById("mouseMessage");
+    const bgButton = document.getElementById("bgButton");
+
+    if (!mouseButton || !mouseMessage) {
+        return;
+    }
+
+    function mouseClickByProperty() {
+        mouseMessage.textContent = "Кнопка відгукнулася на клік — сподіваємося, вам цікаво досліджувати READLY.";
+    }
+
+    function mouseEnterHandler() {
+        mouseMessage.textContent = "Курсор уже тут — схоже, ви знайшли інтерактивну частину сторінки.";
+    }
+
+    function firstAdditionalHandler() {
+        console.log("Перший додатковий обробник для click спрацював.");
+    }
+
+    function secondAdditionalHandler() {
+        console.log("Другий додатковий обробник для click спрацював.");
+    }
+
+    mouseButton.onclick = mouseClickByProperty;
+
+    mouseButton.addEventListener("mouseenter", mouseEnterHandler);
+    mouseButton.addEventListener("click", firstAdditionalHandler);
+    mouseButton.addEventListener("click", secondAdditionalHandler);
+
+    const objectHandler = {
+        handleEvent(event) {
+            mouseMessage.textContent = "Об’єкт-обробник спрацював на елементі: " + event.currentTarget.tagName;
+            event.currentTarget.classList.add("currentTargetBox");
+
+            setTimeout(function () {
+                event.currentTarget.classList.remove("currentTargetBox");
+            }, 700);
+        }
+    };
+
+    if (bgButton) {
+        bgButton.addEventListener("dblclick", objectHandler);
+
+        setTimeout(function () {
+            bgButton.removeEventListener("dblclick", objectHandler);
+            console.log("Об’єкт-обробник для dblclick видалено через removeEventListener.");
+        }, 15000);
+    }
+}
+
+function setupGenreListHighlight() {
+    const genreList = document.getElementById("genreList");
+
+    if (!genreList) {
+        return;
+    }
+
+    genreList.onclick = function (event) {
+        const target = event.target;
+
+        if (target.tagName !== "LI") {
+            return;
+        }
+
+        const items = genreList.querySelectorAll("li");
+        items.forEach(function (item) {
+            item.classList.remove("activeGenre");
+        });
+
+        target.classList.add("activeGenre");
+    };
+}
+
+const menuActions = {
+    showCatalogMessage() {
+        const menuResult = document.getElementById("menuResult");
+        if (menuResult) {
+            menuResult.textContent = "У каталозі зібрані книги для різного настрою: від легких романів до захопливих історій з інтригою.";
+        }
+    },
+
+    showWelcomeMessage() {
+        const menuResult = document.getElementById("menuResult");
+        if (menuResult) {
+            menuResult.textContent = "READLY — це місце, де хочеться затриматися довше: обрати книгу, видихнути й провести час із задоволенням.";
+        }
+    },
+
+    showCoffeeMessage() {
+        const menuResult = document.getElementById("menuResult");
+        if (menuResult) {
+            menuResult.textContent = "Так, у нас є кава — саме для тих моментів, коли хочеться поєднати читання і трохи затишку.";
+        }
+    },
+ showWorkHours() {
+    const menuResult = document.getElementById("menuResult");
+    if (menuResult) {
+        menuResult.textContent = "Ми працюємо з понеділка по п’ятницю з 09:00 до 20:00, у суботу — з 10:00 до 18:00. Неділя — вихідний.";
+    }
+},
+
+showPetsInfo() {
+    const menuResult = document.getElementById("menuResult");
+    if (menuResult) {
+        menuResult.textContent = "Так, ми Pet-friendly! Будемо раді бачити вас із вихованими хвостиками. У нас завжди знайдеться мисочка з водою для вашого друга.";
+    }
+},
+
+showDiscountInfo() {
+    const menuResult = document.getElementById("menuResult");
+    if (menuResult) {
+        menuResult.textContent = "Так, для наших постійних гостей ми підготували приємні бонуси, сезонні пропозиції та спеціальні знижки на окремі добірки книг.";
+    }
+},
+
+showCertificateInfo() {
+    const menuResult = document.getElementById("menuResult");
+    if (menuResult) {
+        menuResult.textContent = "Так, у нас є подарункові сертифікати на будь-яку суму — це гарний варіант, якщо хочеться подарувати людині свободу вибору.";
+    }
+}
+};
+
+const actionMenu = document.getElementById("actionMenu");
+
+if (actionMenu) {
+    actionMenu.addEventListener("click", function (event) {
+        const actionElement = event.target.closest("[data-action]");
+        if (!actionElement) return;
+
+        const action = actionElement.dataset.action;
+        if (action && typeof menuActions[action] === "function") {
+            menuActions[action]();
+        }
+    });
+}

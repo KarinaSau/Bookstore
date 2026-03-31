@@ -175,3 +175,76 @@ h2::after {
     content: " ✔";
     color: rgb(0, 146, 46);
 }
+
+.interactiveBlock {
+    margin: 30px 0;
+    padding: 18px;
+    background: #fff7fb;
+    border: 1px solid #f0bfd8;
+    border-radius: 12px;
+}
+
+#mouseButton,
+.actionMenu button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #c040b1;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 6px;
+}
+
+#mouseButton:hover,
+.actionMenu button:hover {
+    opacity: 0.92;
+}
+
+.infoText {
+    text-align: left;
+    font-weight: 600;
+    color: #7a1f58;
+    margin-top: 12px;
+    margin-bottom: 18px;
+}
+
+.genreList {
+    max-width: 700px;
+    margin: 0 0 18px 0;
+    padding-left: 22px;
+    text-align: left;
+}
+
+.genreList li {
+    cursor: pointer;
+    padding: 8px 10px;
+    margin: 6px 0;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    text-align: left;
+}
+
+.genreList li.activeGenre {
+    background-color: #f8c0e3;
+    color: #5a1036;
+    font-weight: bold;
+}
+
+.currentTargetBox {
+    box-shadow: 0 0 0 3px rgba(192, 64, 177, 0.25);
+}
+
+.actionMenu {
+    text-align: left;
+    margin-bottom: 16px;
+}
+
+.leftActionWrap {
+    margin: 14px 0;
+    text-align: left;
+}
+
+.interactiveBlock {
+    text-align: left;
+}

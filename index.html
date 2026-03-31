@@ -30,7 +30,7 @@
   </header>
 
   <hr>
-
+ 
   <h2 id="start">Вітаємо у нашій книгарні!</h2>
   <script>
   document.write('<p><em>READLY — місце, де книги, кава і затишок поєднуються в одній атмосфері.</em></p>');
@@ -60,8 +60,39 @@
 </div>
 
 <p style="text-align:center;">
-  <button onclick="changeBackgroundFor30Seconds()">Змінити фон на 30 секунд</button>
+  <button id="bgButton" onclick="changeBackgroundFor30Seconds()">Змінити фон на 30 секунд</button>
 </p>
+
+<section class="interactiveBlock">
+  <h2>Невелика взаємодія з сайтом</h2>
+  <p class="interactiveIntro">Спробуйте навести курсор на кнопку, натиснути на неї або обрати жанр, який вам сьогодні найближчий.</p>
+
+ <div class="leftActionWrap">
+ <button id="mouseButton">Натисни або наведи на мене</button>
+</div>
+
+  <p id="mouseMessage" class="infoText">Тут з’явиться коротка підказка після взаємодії.</p>
+
+  <h3>Оберіть жанр настрою:</h3>
+  <ul id="genreList" class="genreList">
+    <li>Романтичні історії</li>
+    <li>Детективні сюжети</li>
+    <li>Мотиваційні книги</li>
+    <li>Фентезі для відпочинку</li>
+  </ul>
+
+<h3>Швидкі дії:</h3>
+<div id="actionMenu" class="actionMenu">
+  <button data-action="showCatalogMessage">Що є в каталозі?</button>
+  <button data-action="showWelcomeMessage">Що особливого в READLY?</button>
+  <button data-action="showCoffeeMessage">А кава тут є?</button>
+  <button data-action="showWorkHours">Який графік роботи?</button>
+  <button data-action="showPetsInfo">Чи можна до вас із домашніми улюбленцями?</button>
+  <button data-action="showDiscountInfo">Є знижка для постійних гостей?</button>
+  <button data-action="showCertificateInfo">Чи можна купити сертифікат?</button>
+</div>
+
+<p id="menuResult" class="infoText">Натисніть кнопку, і тут з’явиться відповідь.</p>
 
   <footer>
     <hr>
@@ -74,26 +105,30 @@
 <script src="script.js"></script>
 
 <script>
-  window.onload = function () {
-    domOperations();
 
-    setTimeout(function () {
-      alert("Ласкаво просимо до книгарні READLY!");
+window.onload = function () {
+  domOperations();
+  assignMouseEvents();
+  setupGenreListHighlight();
 
-      if (confirm("Хочете пройти короткий книжковий діалог і отримати невелику рекомендацію?")) {
-        dialogWithUser();
-      } else {
-        alert("Бажаємо вам приємного перегляду сторінки.");
-      }
+  setTimeout(function () {
+    alert("Ласкаво просимо до книгарні READLY!");
 
-      showDeveloperInfo("Сауляк", "Каріна");
-      compareStrings("Романи", "Детективи");
+    if (confirm("Хочете пройти короткий книжковий діалог і отримати невелику рекомендацію?")) {
+      dialogWithUser();
+    } else {
+      alert("Бажаємо вам приємного перегляду сторінки.");
+    }
 
-      if (confirm("Перейти до каталогу книг?")) {
-        redirectToAnotherPage();
-      }
-    }, 300);
-  };
+    showDeveloperInfo("Сауляк", "Каріна", "Розробник");
+    compareStrings("Романи", "Детективи");
+
+    if (confirm("Перейти до каталогу книг?")) {
+      redirectToAnotherPage();
+    }
+  }, 300);
+};
+
 </script>
 
 
