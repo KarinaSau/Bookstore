@@ -93,6 +93,20 @@
 </div>
 
 <p id="menuResult" class="infoText">Натисніть кнопку, і тут з’явиться відповідь.</p>
+<h3>Ефект наведення курсора:</h3>
+<div id="hoverArea" class="hoverArea">
+<div class="hoverItem">Книга 1</div>
+<div class="hoverItem">Книга 2</div>
+<div class="hoverItem">Книга 3</div>
+</div>
+
+<p id="hoverInfo" class="infoText">Наведіть курсор на будь-який елемент.</p>
+
+<h3>Перетягування елемента:</h3>
+<div id="dragContainer" class="dragContainer">
+<div id="dragItem" class="dragItem">Перетягни мене</div>
+</div>
+
 
   <footer>
     <hr>
@@ -107,11 +121,14 @@
 <script>
 
 window.onload = function () {
-  domOperations();
-  assignMouseEvents();
-  setupGenreListHighlight();
+domOperations();
+assignMouseEvents();
+setupGenreListHighlight();
+setupHoverEffects();
+setupDragAndDrop();
 
   setTimeout(function () {
+
     alert("Ласкаво просимо до книгарні READLY!");
 
     if (confirm("Хочете пройти короткий книжковий діалог і отримати невелику рекомендацію?")) {

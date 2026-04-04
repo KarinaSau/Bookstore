@@ -248,3 +248,54 @@ h2::after {
 .interactiveBlock {
     text-align: left;
 }
+
+
+.hoverArea {
+    display: flex;
+    gap: 12px;
+    margin: 12px 0 16px 0;
+    flex-wrap: wrap;
+}
+
+.hoverItem {
+    padding: 12px 18px;
+    background: #f8c0e3;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-weight: 600;
+    color: #5a1036;
+}
+
+.hoveredItem {
+    background: #c040b1;
+    color: white;
+    transform: scale(1.05);
+}
+
+.dragContainer {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 220px;
+    border: 2px dashed #c040b1;
+    border-radius: 12px;
+    background: #fff7fb;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.dragItem {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 170px;
+    padding: 14px 18px;
+    background: #c040b1;
+    color: white;
+    border-radius: 10px;
+    cursor: grab;
+    text-align: center;
+    font-weight: bold;
+    user-select: none;
+}

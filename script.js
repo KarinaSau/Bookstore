@@ -292,3 +292,108 @@ if (actionMenu) {
         }
     });
 }
+
+function setupHoverEffects() {
+    const hoverArea = document.getElementById("hoverArea");
+    const hoverInfo = document.getElementById("hoverInfo");
+
+    if (!hoverArea || !hoverInfo) {
+        return;
+    }
+
+    hoverArea.addEventListener("mouseover", function (event) {
+        const target = event.target;
+
+        if (!target.classList.contains("hoverItem")) {
+            return;
+        }
+
+        target.classList.add("hoveredItem");
+
+        let fromElement = "зовні блоку";
+        if (event.relatedTarget && event.relatedTarget.classList && event.relatedTarget.classList.contains("hoverItem")) {
+            fromElement = event.relatedTarget.textContent;
+        }
+
+        hoverInfo.textContent =
+            "Курсор наведено на: " + target.textContent +
+            ". Попередній елемент: " + fromElement + ".";
+    });
+
+    hoverArea.addEventListener("mouseout", function (event) {
+        const target = event.target;
+
+        if (!target.classList.contains("hoverItem")) {
+            return;
+        }
+
+        target.classList.remove("hoveredItem");
+
+        let toElement = "за межі блоку";
+        if (event.relatedTarget && event.relatedTarget.classList && event.relatedTarget.classList.contains("hoverItem")) {
+            toElement = event.relatedTarget.textContent;
+        }
+
+        hoverInfo.textContent =
+            "Курсор вийшов з: " + target.textContent +
+            ". Перехід до: " + toElement + ".";
+    });
+}
+
+function setupDragAndDrop() {
+    const dragItem = document.getElementById("dragItem");
+    const dragContainer = document.getElementById("dragContainer");
+
+    if (!dragItem || !dragContainer) {
+        return;
+    }
+
+    let isDragging = false;
+    let shiftX = 0;
+    let shiftY = 0;
+
+    dragItem.addEventListener("mousedown", function (event) {
+        isDragging = true;
+
+        const itemRect = dragItem.getBoundingClientRect();
+
+        shiftX = event.clientX - itemRect.left;
+        shiftY = event.clientY - itemRect.top;
+
+        dragItem.style.cursor = "grabbing";
+        dragItem.style.zIndex = "1000";
+    });
+
+    document.addEventListener("mousemove", function (event) {
+        if (!isDragging) {
+            return;
+        }
+
+        const containerRect = dragContainer.getBoundingClientRect();
+
+        let newLeft = event.clientX - containerRect.left - shiftX;
+        let newTop = event.clientY - containerRect.top - shiftY;
+
+        const maxLeft = dragContainer.clientWidth - dragItem.offsetWidth;
+        const maxTop = dragContainer.clientHeight - dragItem.offsetHeight;
+
+        if (newLeft < 0) newLeft = 0;
+        if (newTop < 0) newTop = 0;
+        if (newLeft > maxLeft) newLeft = maxLeft;
+        if (newTop > maxTop) newTop = maxTop;
+
+        dragItem.style.left = newLeft + "px";
+        dragItem.style.top = newTop + "px";
+    });
+
+    document.addEventListener("mouseup", function () {
+        if (isDragging) {
+            isDragging = false;
+            dragItem.style.cursor = "grab";
+        }
+    });
+
+    dragItem.ondragstart = function () {
+        return false;
+    };
+}
